@@ -16,6 +16,7 @@
     "http": "0.0.0",
     "jsonwebtoken": "^8.2.0",
     "lodash": "^4.17.5",
+    "mysql": "^2.15.0",
     "pg": "^7.4.1",
     "sequelize": "^4.36.1",
     "sequelize-values": "^1.1.0"

@@ -33,7 +33,7 @@ function register(req, res) {
         }
         var user = {
             login: req.body.login,
-            password: bcrypt.hashSync(req.body.password, config.saltRouds)
+            password: bcrypt.hashSync(req.body.password, config.saltRounds)
         }
         return userService.addUser(user)
         .then(() => res.send({success: true}));
