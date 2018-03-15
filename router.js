@@ -1,11 +1,12 @@
 const authController = require('./controllers/auth');
 
 const orderController = require('./controllers/order');
+const authMiddleware = require('./middlewares/auth');
 
 module.exports.set = app => {
    app.post('/login', authController.login);
    app.post('/register', authController.register);
-   app.get('/orders', orderController.getOrders);
-   app.get('/orders/:id', orderController.getOrder);
-   app.post('/orders', orderController.addOrder);
+   app.get('/orders', authMiddleware.checkAuth, orderController.getOrders);
+    app.get('/orders/:id', authMiddleware.checkAuth, orderController.getOrder);
+    app.post('/orders', authMiddleware.checkAuth, orderController.addOrder);
 }
